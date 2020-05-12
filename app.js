@@ -1,5 +1,9 @@
 'use strict';
-
+/**
+ * フィボナッチ数列を返す
+ * @param {Number} n
+ * @returns {Number}
+ */
 function fibonacci(n) {
   if (n === 0) {
     return 0;
@@ -10,6 +14,12 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
+/**
+ * フィボナッチ数列を返す。
+ * 高速化版。（メモリの使用）
+ * @param {Number} n
+ * @returns {Number}
+ */
 const memo = new Map();
 memo.set(0, 0);
 memo.set(1, 1);
