@@ -38,3 +38,28 @@ for (let i = 0; i <= lenght; i++) {
   // console.log(fibonacci(i));
   console.log(fibonacciMap(i));
 }
+
+/**
+ *  トリボナッチ数列を返す。
+ * 高速化版。（メモリの使用）
+ * @param {Number} n
+ * @returns {Number}
+ */
+const trimemo = new Map();
+trimemo.set(0, 0);
+trimemo.set(1, 0);
+trimemo.set(2, 1);
+
+function trionacciMap(n) {
+  if (trimemo.has(n)) {
+    return trimemo.get(n);
+  }
+  const value = trionacciMap(n - 1) + trionacciMap(n - 2) + trionacciMap(n - 3);
+  trimemo.set(n, value);
+  return value;
+}
+
+const trilenght = 40;
+for (let i = 0; i <= trilenght; i++) {
+  console.log(trionacciMap(i));
+}
